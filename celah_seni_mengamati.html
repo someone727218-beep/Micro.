@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CELAH | Seni Mengamati</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#0c090c;color:#f5edf0;font-family:Arial,sans-serif;line-height:1.8}
+header{padding:24px 20px;border-bottom:1px solid #642333}
+.logo{color:#ef637b;letter-spacing:5px;font-weight:bold}
+main{padding:22px 18px 100px;max-width:750px;margin:auto}
+h1{font-size:38px;line-height:1.2}
+h1 span,h2{color:#ef637b}
+p{color:#d2c3ca}
+.card{padding:20px;margin:14px 0;background:linear-gradient(140deg,#21121a,#110d11);border:1px solid #562332;border-radius:16px;box-shadow:0 0 18px #5d15201c}
+button{background:#761f36;color:white;border:1px solid #bd425d;border-radius:10px;padding:12px 16px;font-size:14px;cursor:pointer}
+nav{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-around;background:#130e13;border-top:1px solid #642333;padding:12px 4px}
+nav button{background:transparent;border:0;color:#e8cbd2;padding:8px}
+.page{display:none}.page.active{display:block}
+.quote{border-left:2px solid #ef637b;padding-left:15px;color:#f4cbd4}
+.small{font-size:12px;color:#b9aab1}
+</style>
+</head>
+<body>
+<header>
+ <div class="logo">C E L A H.</div>
+ <div class="small">OBSERVATION • MINDSET • DETAIL</div>
+</header>
+<main>
+<section id="beranda" class="page active">
+ <p>RUANG BACA DIGITAL</p>
+ <h1>Dunia menyimpan<br><span>detail yang terlewat.</span></h1>
+ <p>Belajar melihat lebih dalam, berpikir lebih tenang, dan memahami hal kecil yang sering terlewat.</p>
+ <h2>Mulai menjelajah</h2>
+ <div class="card">
+  <p>01 / BAB PERTAMA · 5 HALAMAN</p>
+  <h2>Menyarii Celah Tingkat Micro</h2>
+  <p>Seni melihat apa yang orang lain lewati.</p>
+  <button onclick="buka(0)">Mulai membaca ↗</button>
+ </div>
+ <div class="card">
+  <p>02 / SEGERA HADIR</p>
+  <h2>Membaca Pola</h2>
+  <p>Belajar membedakan fakta, dugaan, dan asumsi.</p>
+ </div>
+ <div class="card">
+  <p>03 / SEGERA HADIR</p>
+  <h2>Latihan Fokus 10 Detik</h2>
+  <p>Latihan sederhana untuk mempertajam perhatian.</p>
+ </div>
+ <p class="quote">"Ketajaman bukan soal melihat semuanya, tetapi menyadari apa yang biasanya kita lewatkan."</p>
+</section>
+
+<section id="bacaan" class="page">
+ <p class="small" id="nomor"></p>
+ <div style="height:3px;background:#38202a"><div id="bar" style="height:3px;background:#ef637b;width:20%"></div></div>
+ <h1 id="judul"></h1>
+ <p class="quote" id="kutipan"></p>
+ <div id="isi"></div>
+ <div class="card"><p id="teaser"></p></div>
+ <button onclick="pindah(-1)">← Sebelumnya</button>
+ <button onclick="pindah(1)" id="lanjut">Lanjutkan →</button>
+</section>
+
+<section id="top" class="page">
+ <h1>Top <span>Bacaan</span></h1>
+ <div class="card"><h2>Menyarii Celah Tingkat Micro</h2><p>Bacaan pilihan · 5 halaman</p><button onclick="buka(0)">Baca sekarang</button></div>
+ <div class="card"><h2>Membaca Pola</h2><p>Segera hadir.</p></div>
+ <div class="card"><h2>Latihan Fokus</h2><p>Segera hadir.</p></div>
+</section>
+
+<section id="lagu" class="page">
+ <h1>Ruang <span>Lagu</span></h1>
+ <p>Pilih lagu dari HP untuk menemani waktu membaca.</p>
+ <div class="card"><input type="file" accept="audio/*" onchange="musik(event)"></div>
+ <audio id="audio" controls style="width:100%;display:none"></audio>
+</section>
+
+<section id="saya" class="page">
+ <h1>Tentang <span>CELAH</span></h1>
+ <div class="card"><h2>Progres membaca</h2><p id="progres">Halaman 1 dari 5</p></div>
+ <p>Amati dengan teliti. Bedakan fakta dari dugaan. Jangan terburu-buru menghakimi.</p>
+ <button onclick="buka(0)">Ulangi bacaan</button>
+</section>
+</main>
+
+<nav>
+ <button onclick="tampil('beranda')">⌂<br>Beranda</button>
+ <button onclick="tampil('top')">✧<br>Top</button>
+ <button onclick="tampil('lagu')">♫<br>Lagu</button>
+ <button onclick="tampil('saya')">◉<br>Saya</button>
+</nav>
+
+<script>
+const data=[
+{
+t:"Seni Melihat Apa yang Orang Lain Lewati",
+q:"Orang-orang melihat apa yang ingin mereka lihat. Kita belajar memperhatikan apa yang benar-benar ada di sana.",
+i:`<p>Mari mulai dengan eksperimen kecil. Bayangkan kamu memasuki kedai kopi yang ramai. Apa yang kamu lihat? Meja kosong, kasir sibuk, aroma kopi panggang, dan warna dinding.</p><p>Sekarang, perhatikan lebih dekat. Bagaimana cahaya jatuh di meja? Suara apa yang terdengar? Kursi mana yang ditarik menjauh dari keramaian?</p><p>Perbedaannya bukan kekuatan sihir. Perbedaannya adalah <b>perhatian yang disengaja.</b> Banyak detail terlewat karena pikiran kita terbiasa menyederhanakan dunia.</p><h2>Jeda sejenak</h2><p>Ingat sebuah ruangan yang baru kamu kunjungi. Sebutkan tiga detail kecil yang biasanya tidak kamu ceritakan kepada orang lain.</p>`,
+n:"Berikutnya: bagaimana melihat rincian tanpa terjebak asumsi?"
+},
+{
+t:"Jangan Lihat Utuh, Lihat Rinciannya",
+q:"Detail kecil dapat memberi petunjuk, tetapi belum tentu menceritakan seluruh kebenaran.",
+i:`<p>Bayangkan kamu bertemu seseorang bernama Arthur. Ia berpakaian rapi dan sedang tersenyum. Itulah pengamatan awal, bukan kesimpulan akhir.</p><h2>01. Benda yang dibawa</h2><p>Perhatikan tas, buku, atau jam tangannya. Catat apa yang benar-benar terlihat. Jangan langsung menyimpulkan pekerjaan atau kehidupan pribadinya hanya dari benda tersebut.</p><h2>02. Gerakan kecil</h2><p>Apakah ia mengetuk meja atau mengubah posisi duduk? Gerakan itu bisa memiliki banyak alasan. Jangan menganggap satu gerakan sebagai bukti pasti perasaan seseorang.</p><h2>03. Lingkungan sekitar</h2><p>Perhatikan suara, cahaya, dan benda-benda di sekitar. Lingkungan memberi konteks, tetapi tidak otomatis mengungkap cerita lengkap seseorang.</p><p class="quote">Aturan pengamat: pisahkan apa yang terlihat, apa yang diduga, dan apa yang diketahui.</p>`,
+n:"Kamu sudah belajar mengamati. Sekarang, bagaimana melatih fokus?"
+},
+{
+t:"Melatih Otak Menjadi Spons Informasi",
+q:"Fokus bukan melihat segalanya, tetapi memberi perhatian pada hal yang penting.",
+i:`<p>Otak menyaring informasi supaya kita tidak kewalahan. Karena itu, kita kadang melewatkan detail saat terlalu sibuk memikirkan hal lain.</p><h2>Latihan fokus 10 detik</h2><p>Pilih sebuah benda di dekatmu. Amati bentuk, warna, posisi, tekstur, dan satu detail yang sebelumnya tidak kamu sadari.</p><p>Setelah 10 detik, alihkan pandangan. Coba sebutkan lima detail yang kamu ingat. Ulangi dengan benda lain.</p><h2>Perhatikan perhatianmu</h2><p>Jangan memaksa diri mengingat semua hal. Beri jeda, ubah sudut pandang, dan tanyakan: “Apa yang mungkin belum kuperhatikan?”</p><p>Latihan sederhana dapat membangun kebiasaan mengamati dengan lebih sadar.</p>`,
+n:"Halaman berikutnya membahas musuh terbesar pengamatan: prasangka."
+},
+{
+t:"Rasa Ingin Tahu, Bukan Menghakimi",
+q:"Dugaan bukanlah fakta, sekalipun terasa sangat meyakinkan.",
+i:`<p>Bayangkan kamu melihat seseorang berpakaian kusut. Jika langsung berpikir bahwa ia malas, kamu sudah membuat penilaian tanpa mengetahui ceritanya.</p><p>Pengamat yang baik berkata, “Pakaiannya tampak kusut,” lalu berhenti sebelum membuat kesimpulan yang belum didukung bukti.</p><h2>Uji asumsi dengan tiga pertanyaan</h2><p><b>Apa faktanya?</b> Catat sesuatu yang benar-benar terlihat.</p><p><b>Apa dugaan saya?</b> Akui bahwa itu baru kemungkinan.</p><p><b>Apa penjelasan lainnya?</b> Pertimbangkan kemungkinan lain sebelum menyimpulkan.</p><p>Bahasa tubuh tidak dapat memastikan seseorang berbohong atau menyembunyikan sesuatu. Konteks dan bukti yang lebih kuat tetap diperlukan.</p><p class="quote">Mengamati bukan untuk menghakimi, melainkan untuk memahami dengan lebih jernih.</p>`,
+n:"Satu halaman lagi. Saatnya membawa semua pelajaran ini ke kehidupan sehari-hari."
+},
+{
+t:"Dunia Adalah Perpustakaan Terbuka",
+q:"Lihat dengan teliti. Pikirkan dengan tenang. Simpulkan dengan rendah hati.",
+i:`<p>Ingat kembali kedai kopi di awal bacaan. Sekarang kamu mungkin memperhatikan arah cahaya, suara yang bertumpuk, ruang di antara kursi, dan perubahan suasana ketika pintu terbuka.</p><p>Yang berubah bukan kedainya. Yang berubah adalah caramu memberi perhatian dan memeriksa asumsi.</p><h2>Ritual tiga langkah</h2><p><b>1. Berhenti.</b> Ambil jeda sebelum menyimpulkan.</p><p><b>2. Amati.</b> Catat detail yang benar-benar terlihat.</p><p><b>3. Periksa.</b> Bedakan fakta dari dugaan dan bersedia memperbaiki pendapat.</p><p>Kamu tidak perlu mencurigai semua orang atau mencari makna tersembunyi di setiap gerakan. Pengamatan yang matang selalu disertai rasa hormat dan kesediaan untuk berkata, “Aku belum tahu.”</p><h2>Tantangan penutup</h2><p>Pilih satu benda hari ini. Temukan tiga detail baru, tulis satu dugaan, lalu cari satu penjelasan alternatif.</p><p class="quote">Bab pertama selesai. Latihan sebenarnya dimulai saat kamu kembali melihat dunia di sekitarmu.</p>`,
+n:"Kamu menyelesaikan bacaan pertama. Kembali kapan saja untuk membaca ulang."
+}
+];
+let halaman=0;
+function tampil(id){document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo(0,0);if(id==='saya')document.getElementById('progres').textContent='Halaman '+(halaman+1)+' dari 5';}
+function buka(n){halaman=n;render();tampil('bacaan');}
+function render(){let p=data[halaman];document.getElementById('nomor').textContent='BAB 01 · HALAMAN '+(halaman+1)+' DARI 5';document.getElementById('bar').style.width=((halaman+1)*20)+'%';document.getElementById('judul').textContent=p.t;document.getElementById('kutipan').textContent=p.q;document.getElementById('isi').innerHTML=p.i;document.getElementById('teaser').textContent=p.n;document.getElementById('lanjut').textContent=halaman===4?'Selesai membaca ✓':'Lanjutkan →';}
+function pindah(n){if(halaman===4&&n===1){tampil('beranda');return;}halaman=Math.max(0,Math.min(4,halaman+n));render();window.scrollTo(0,0);}
+function musik(e){if(e.target.files[0]){let a=document.getElementById('audio');a.src=URL.createObjectURL(e.target.files[0]);a.style.display='block';}}
+</script>
+</body>
+</html>
